@@ -1,0 +1,63 @@
+export ATSHOME
+export ATSHOMERELOC
+
+: dirent.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: dirent_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: dirent_atxt_dats.c |> atscc -o %o %f -l atsdoc |> dirent_atxt.exe
+: dirent_atxt.exe | dirent_atxt.txt |> ./%f >%o |> dirent.cats 
+
+: errno.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: errno_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: errno_atxt_dats.c |> atscc -o %o %f -l atsdoc |> errno_atxt.exe
+: errno_atxt.exe | errno_atxt.txt |> ./%f >%o |> errno.cats 
+
+: fcntl.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: fcntl_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: fcntl_atxt_dats.c |> atscc -o %o %f -l atsdoc |> fcntl_atxt.exe
+: fcntl_atxt.exe | fcntl_atxt.txt |> ./%f >%o |> fcntl.cats 
+
+: fnmatch.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: fnmatch_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: fnmatch_atxt_dats.c |> atscc -o %o %f -l atsdoc |> fnmatch_atxt.exe
+: fnmatch_atxt.exe | fnmatch_atxt.txt |> ./%f >%o |> fnmatch.cats 
+
+: malloc.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: malloc_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: malloc_atxt_dats.c |> atscc -o %o %f -l atsdoc |> malloc_atxt.exe
+: malloc_atxt.exe | malloc_atxt.txt |> ./%f >%o |> malloc.cats 
+
+: math.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: math_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: math_atxt_dats.c |> atscc -o %o %f -l atsdoc |> math_atxt.exe
+: math_atxt.exe | math_atxt.txt |> ./%f >%o |> math.cats 
+
+: stdio.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: stdio_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: stdio_atxt_dats.c |> atscc -o %o %f -l atsdoc |> stdio_atxt.exe
+: stdio_atxt.exe | stdio_atxt.txt |> ./%f >%o |> stdio.cats 
+
+: stdlib.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: stdlib_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: stdlib_atxt_dats.c |> atscc -o %o %f -l atsdoc |> stdlib_atxt.exe
+: stdlib_atxt.exe | stdlib_atxt.txt |> ./%f >%o |> stdlib.cats 
+
+: string.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: string_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: string_atxt_dats.c |> atscc -o %o %f -l atsdoc |> string_atxt.exe
+: string_atxt.exe | string_atxt.txt |> ./%f >%o |> string.cats 
+
+: strings.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: strings_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: strings_atxt_dats.c |> atscc -o %o %f -l atsdoc |> strings_atxt.exe
+: strings_atxt.exe | strings_atxt.txt |> ./%f >%o |> strings.cats 
+
+: time.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: time_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: time_atxt_dats.c |> atscc -o %o %f -l atsdoc |> time_atxt.exe
+: time_atxt.exe | time_atxt.txt |> ./%f >%o |> time.cats 
+
+: unistd.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: unistd_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: unistd_atxt_dats.c |> atscc -o %o %f -l atsdoc |> unistd_atxt.exe
+: unistd_atxt.exe | unistd_atxt.txt |> ./%f >%o |> unistd.cats 
+

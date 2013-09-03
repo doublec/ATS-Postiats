@@ -318,4 +318,9 @@ doc/BOOK/ATS2TUTORIAL/HTML
 doc/BOOK/ATS2TUTORIAL/CODE/*.html
 doc/BOOK/ATS2TUTORIAL/*/*_extracted.dats
 
+#
+# Tup files
+#
+.tup
+
 ###### end of [.gitignore] ######

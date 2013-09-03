@@ -1,0 +1,692 @@
+export ATSHOME
+export ATSHOMERELOC
+
+ATSGCFLAG=-D_ATS_GCATS
+
+#ATSCCFLAGS=-g
+#ATSCCFLAGS=-g -O
+ATSCCFLAGS=-g -O2
+
+#: foreach *.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+#: foreach p*.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+#: foreach *.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_error.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_error_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+: pats_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_intinf.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_intinf_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_intinf.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_intinf_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_counter.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_counter_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_counter.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_counter_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_utils.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_utils_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_utils.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_utils_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_global.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_global_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_global.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_global_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_basics.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_basics_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_basics.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_basics_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_stamp.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_stamp_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_stamp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_stamp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_symbol.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_symbol_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_symbol.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_symbol_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_filename.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_filename_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_filename.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_filename_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_location.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_location_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_location.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_location_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_errmsg.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_errmsg_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_errmsg.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_errmsg_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_reader.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_reader_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_reader.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_reader_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lexbuf.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_lexbuf_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lexbuf.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lexbuf_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lexing.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_lexing_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lexing.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lexing_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lexing_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lexing_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lexing_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lexing_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lexing_token.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lexing_token_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_label.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_label_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_label.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_label_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_effect.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_effect_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_effect.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_effect_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_fixity.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_fixity_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_fixity_prec.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_fixity_prec_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_fixity_fxty.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_fixity_fxty_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_syntax.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_syntax_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_syntax.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_syntax_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_syntax_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_syntax_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_depgen.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_depgen_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_depgen.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_depgen_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_taggen.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_taggen_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_taggen.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_taggen_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_tokbuf.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_tokbuf_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_tokbuf.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_tokbuf_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_parsing_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_util.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_util_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_kwds.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_kwds_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_base.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_base_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_e0xp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_e0xp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_sort.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_sort_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_staexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_staexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_p0at.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_p0at_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_dynexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_dynexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_decl.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_decl_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_parsing_toplevel.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_parsing_toplevel_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_symmap.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_symmap_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_symmap.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_symmap_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_symenv.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_symenv_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_symenv.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_symenv_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp1.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_staexp1_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp1.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp1_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp1_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp1_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp1.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_dynexp1_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp1.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp1_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp1_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp1_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_trans1_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_env.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_trans1_env_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_env.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_env_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_e1xpval.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_e1xpval_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_e1xpval.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_e1xpval_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_e1xpval_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_e1xpval_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_e0xp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_e0xp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_effect.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_effect_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_sort.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_sort_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_staexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_staexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_p0at.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_p0at_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_syndef.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_syndef_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_dynexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_dynexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans1_decl.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans1_decl_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_staexp2_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_stacst2.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_stacst2_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_stacst2.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_stacst2_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_pprint.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_pprint_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_sort.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_sort_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_scst.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_scst_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_svar.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_svar_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_svvar.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_svvar_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_hole.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_hole_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_ctxt.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_ctxt_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_dcon.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_dcon_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_skexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_skexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_szexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_szexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_util.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_staexp2_util_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_util1.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_util1_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_util2.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_util2_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_util3.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_util3_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_error.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_staexp2_error_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_solve.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_staexp2_solve_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_staexp2_solve.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_staexp2_solve_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_patcst2.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_patcst2_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_patcst2.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_patcst2_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp2.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_dynexp2_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp2.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp2_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dyncst2.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_dyncst2_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dyncst2.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dyncst2_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp2_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp2_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp2_dcst.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp2_dcst_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp2_dvar.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp2_dvar_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp2_dmac.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp2_dmac_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp2_util.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_dynexp2_util_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp2_util.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp2_util_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_trans2_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_namespace.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_namespace_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_namespace.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_namespace_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_env.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_trans2_env_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_env.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans2_env_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans2_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_sort.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans2_sort_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_staexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans2_staexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_p1at.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans2_p1at_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_dynexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans2_dynexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_impdec.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans2_impdec_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans2_decl.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans2_decl_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp3.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_dynexp3_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp3.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp3_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dynexp3_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dynexp3_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_trans3_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_util.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_util_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_trans3_env_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_scst.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_scst_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_svar.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_svar_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_termet.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_termet_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_effect.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_effect_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_dvar.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_dvar_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_lamlp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_lamlp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_pfman.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_pfman_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_env_lstate.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_env_lstate_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dmacro2.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_dmacro2_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dmacro2.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dmacro2_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dmacro2_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dmacro2_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dmacro2_eval0.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dmacro2_eval0_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_dmacro2_eval1.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_dmacro2_eval1_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_p2at.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_p2at_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_patcon.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_patcon_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_syncst.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_syncst_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_dynexp_up.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_dynexp_up_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_dynexp_dn.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_dynexp_dn_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_appsym.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_appsym_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_caseof.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_caseof_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_selab.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_selab_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_ptrof.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_ptrof_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_viewat.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_viewat_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_deref.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_deref_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_assgn.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_assgn_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_xchng.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_xchng_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_lvalres.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_lvalres_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_fldfrat.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_fldfrat_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_looping.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_looping_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_trans3_decl.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_trans3_decl_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lintprgm.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_lintprgm_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lintprgm.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lintprgm_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lintprgm_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lintprgm_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lintprgm_myint_int.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lintprgm_myint_int_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lintprgm_myint_intinf.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lintprgm_myint_intinf_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_lintprgm_solve.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_lintprgm_solve_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_constraint3.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_constraint3_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_constraint3.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_constraint3_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_constraint3_init.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_constraint3_init_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_constraint3_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_constraint3_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_constraint3_simplify.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_constraint3_simplify_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_constraint3_icnstr.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_constraint3_icnstr_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_constraint3_solve.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_constraint3_solve_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_histaexp.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_histaexp_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_histaexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_histaexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_histaexp_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_histaexp_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_histaexp_funlab.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_histaexp_funlab_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_hidynexp.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_hidynexp_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_hidynexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_hidynexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_hidynexp_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_hidynexp_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_hidynexp_util.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_hidynexp_util_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_typerase.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_typerase_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_typerase_error.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_typerase_error_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_typerase_staexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_typerase_staexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_typerase_dynexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_typerase_dynexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_typerase_decl.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_typerase_decl_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_ccomp_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_print.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_print_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_hitype.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_hitype_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_tmplab.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_tmplab_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_tmpvar.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_tmpvar_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_d2env.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_d2env_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_funlab.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_funlab_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_funent.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_funent_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_util.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_util_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_ccompenv.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_ccompenv_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_instrseq.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_instrseq_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_hipat.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_hipat_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_dynexp.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_dynexp_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_caseof.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_caseof_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_trywith.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_trywith_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_claulst.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_claulst_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_looping.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_looping_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_decl.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_decl_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_subst.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_subst_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_environ.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_environ_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_template.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_template_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_emit.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_emit_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_emit2.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_emit2_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_emit3.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_emit3_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_ccomp_main.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_ccomp_main_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_comarg.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
+: pats_comarg_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_comarg.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_comarg_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
+: pats_main.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_main_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o 
+
+: {objs} | pats_main_dats.o |> atscc $(ATSGCFLAG) $(ATSCCFLAGS) -o %o pats_main_dats.o %f -lats -lgmp |> patsopt
+

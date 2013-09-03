@@ -1,0 +1,99 @@
+export ATSHOME
+export ATSHOMERELOC
+
+: basics.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: basics_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: basics_atxt_dats.c |> atscc -o %o %f -l atsdoc |> basics_atxt.exe
+: basics_atxt.exe | basics_atxt.txt |> ./%f >%o |> basics.cats 
+
+: integer.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: integer_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: integer_atxt_dats.c |> atscc -o %o %f -l atsdoc |> integer_atxt.exe
+: integer_atxt.exe | integer_atxt.txt |> ./%f >%o |> integer.cats 
+
+: integer_ptr.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: integer_ptr_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: integer_ptr_atxt_dats.c |> atscc -o %o %f -l atsdoc |> integer_ptr_atxt.exe
+: integer_ptr_atxt.exe | integer_ptr_atxt.txt |> ./%f >%o |> integer_ptr.cats 
+
+: integer_fixed.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: integer_fixed_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: integer_fixed_atxt_dats.c |> atscc -o %o %f -l atsdoc |> integer_fixed_atxt.exe
+: integer_fixed_atxt.exe | integer_fixed_atxt.txt |> ./%f >%o |> integer_fixed.cats 
+
+: memory.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: memory_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: memory_atxt_dats.c |> atscc -o %o %f -l atsdoc |> memory_atxt.exe
+: memory_atxt.exe | memory_atxt.txt |> ./%f >%o |> memory.cats 
+
+: pointer.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: pointer_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: pointer_atxt_dats.c |> atscc -o %o %f -l atsdoc |> pointer_atxt.exe
+: pointer_atxt.exe | pointer_atxt.txt |> ./%f >%o |> pointer.cats 
+
+: bool.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: bool_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: bool_atxt_dats.c |> atscc -o %o %f -l atsdoc |> bool_atxt.exe
+: bool_atxt.exe | bool_atxt.txt |> ./%f >%o |> bool.cats 
+
+: char.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: char_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: char_atxt_dats.c |> atscc -o %o %f -l atsdoc |> char_atxt.exe
+: char_atxt.exe | char_atxt.txt |> ./%f >%o |> char.cats 
+
+: float.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: float_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: float_atxt_dats.c |> atscc -o %o %f -l atsdoc |> float_atxt.exe
+: float_atxt.exe | float_atxt.txt |> ./%f >%o |> float.cats 
+
+: string.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: string_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: string_atxt_dats.c |> atscc -o %o %f -l atsdoc |> string_atxt.exe
+: string_atxt.exe | string_atxt.txt |> ./%f >%o |> string.cats 
+
+: strptr.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: strptr_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: strptr_atxt_dats.c |> atscc -o %o %f -l atsdoc |> strptr_atxt.exe
+: strptr_atxt.exe | strptr_atxt.txt |> ./%f >%o |> strptr.cats 
+
+: filebas.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: filebas_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: filebas_atxt_dats.c |> atscc -o %o %f -l atsdoc |> filebas_atxt.exe
+: filebas_atxt.exe | filebas_atxt.txt |> ./%f >%o |> filebas.cats 
+
+: list.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: list_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: list_atxt_dats.c |> atscc -o %o %f -l atsdoc |> list_atxt.exe
+: list_atxt.exe | list_atxt.txt |> ./%f >%o |> list.cats 
+
+: option.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: option_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: option_atxt_dats.c |> atscc -o %o %f -l atsdoc |> option_atxt.exe
+: option_atxt.exe | option_atxt.txt |> ./%f >%o |> option.cats 
+
+: array.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: array_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: array_atxt_dats.c |> atscc -o %o %f -l atsdoc |> array_atxt.exe
+: array_atxt.exe | array_atxt.txt |> ./%f >%o |> array.cats 
+
+: arrayptr.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: arrayptr_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: arrayptr_atxt_dats.c |> atscc -o %o %f -l atsdoc |> arrayptr_atxt.exe
+: arrayptr_atxt.exe | arrayptr_atxt.txt |> ./%f >%o |> arrayptr.cats 
+
+: arrayref.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: arrayref_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: arrayref_atxt_dats.c |> atscc -o %o %f -l atsdoc |> arrayref_atxt.exe
+: arrayref_atxt.exe | arrayref_atxt.txt |> ./%f >%o |> arrayref.cats 
+
+: matrix.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: matrix_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: matrix_atxt_dats.c |> atscc -o %o %f -l atsdoc |> matrix_atxt.exe
+: matrix_atxt.exe | matrix_atxt.txt |> ./%f >%o |> matrix.cats 
+
+: matrixptr.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: matrixptr_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: matrixptr_atxt_dats.c |> atscc -o %o %f -l atsdoc |> matrixptr_atxt.exe
+: matrixptr_atxt.exe | matrixptr_atxt.txt |> ./%f >%o |> matrixptr.cats 
+
+

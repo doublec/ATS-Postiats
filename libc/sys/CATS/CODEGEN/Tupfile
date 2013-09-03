@@ -1,0 +1,19 @@
+export ATSHOME
+export ATSHOMERELOC
+
+: stat.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: stat_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: stat_atxt_dats.c |> atscc -o %o %f -l atsdoc |> stat_atxt.exe
+: stat_atxt.exe | stat_atxt.txt |> ./%f >%o |> stat.cats 
+
+: time.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: time_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: time_atxt_dats.c |> atscc -o %o %f -l atsdoc |> time_atxt.exe
+: time_atxt.exe | time_atxt.txt |> ./%f >%o |> time.cats 
+
+: types.atxt |> atsdoc --outcode %B_atxt.dats -i %f >%B_atxt.txt |> %B_atxt.dats %B_atxt.txt
+: types_atxt.dats |> atsopt --output %o --dynamic %f |> %B_dats.c
+: types_atxt_dats.c |> atscc -o %o %f -l atsdoc |> types_atxt.exe
+: types_atxt.exe | types_atxt.txt |> ./%f >%o |> types.cats 
+
+

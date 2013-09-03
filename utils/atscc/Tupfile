@@ -1,0 +1,12 @@
+export PATSHOME
+
+PATSOPT=../../src/patsopt
+DEPS=../../prelude/DATS/CODEGEN/*.dats ../../prelude/SATS/CODEGEN/*.sats $(PATSOPT)
+
+: patscc.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> %B_dats.c {c}
+: atscc_main.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> %B_dats.c {c}
+: atscc_print.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> %B_dats.c {c}
+
+: {c} |> gcc -I${PATSHOME} -I${PATSHOME}/ccomp/runtime -DATS_MEMALLOC_LIBC -O2 -o %o %f |> patscc
+
+

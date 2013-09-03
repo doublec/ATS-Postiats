@@ -1,0 +1,2 @@
+: ../src/patsopt        |> cp %f %o |> patsopt
+: ../utils/atscc/patscc |> cp %f %o |> patscc
