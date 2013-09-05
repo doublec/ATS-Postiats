@@ -1,0 +1,4 @@
+ARR=ar -r
+
+: ../output/*.o |> $(ARR) %o %f |> libatslib.a
+

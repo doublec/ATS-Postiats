@@ -1,0 +1,114 @@
+export PATSHOME
+PATSRUNTIME=../../../ccomp/runtime
+PATSOPT=../../../src/patsopt
+DEPS=../../../prelude/DATS/CODEGEN/*.dats ../../../prelude/SATS/CODEGEN/*.sats $(PATSOPT)
+CDEPS=../../../prelude/CATS/CODEGEN/*.cats ../../../libc/sys/CATS/CODEGEN/*.cats ../../../libc/CATS/CODEGEN/*.cats 
+
+CCFLAGS=-fPIC -O2
+
+######
+#
+DATSMEMALLOC=
+#
+# DATSMEMALLOC=-DATS_MEMALLOC_LIBC
+# DATSMEMALLOC=-DATS_MEMALLOC_GCBDW
+#
+######
+
+: ../../../prelude/DATS/bool.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_prelude_bool_dats.c
+: atslib_prelude_bool_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_prelude_bool_dats.o 
+
+: ../../../prelude/DATS/char.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_prelude_char_dats.c
+: atslib_prelude_char_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_prelude_char_dats.o 
+
+: ../../../prelude/DATS/integer.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_prelude_integer_dats.c
+: atslib_prelude_integer_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_prelude_integer_dats.o 
+
+: ../../../prelude/DATS/float.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_prelude_float_dats.c
+: atslib_prelude_float_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_prelude_float_dats.o 
+
+: ../../../prelude/DATS/string.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_prelude_string_dats.c
+: atslib_prelude_string_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_prelude_string_dats.o 
+
+: ../../../prelude/DATS/strptr.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_prelude_strptr_dats.c
+: atslib_prelude_strptr_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_prelude_strptr_dats.o 
+
+: ../../../prelude/DATS/filebas.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_prelude_filebas_dats.c
+: atslib_prelude_filebas_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_prelude_filebas_dats.o 
+
+: ../../../libc/DATS/dirent.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libc_dirent_dats.c
+: atslib_libc_dirent_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libc_dirent_dats.o 
+
+: ../../../libc/DATS/fcntl.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libc_fcntl_dats.c
+: atslib_libc_fcntl_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libc_fcntl_dats.o 
+
+: ../../../libc/DATS/stdio.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libc_stdio_dats.c
+: atslib_libc_stdio_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libc_stdio_dats.o 
+
+: ../../../libc/DATS/stdlib.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libc_stdlib_dats.c
+: atslib_libc_stdlib_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libc_stdlib_dats.o 
+
+: ../../../libc/DATS/string.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libc_string_dats.c
+: atslib_libc_string_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libc_string_dats.o 
+
+: ../../../libc/DATS/strings.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libc_strings_dats.c
+: atslib_libc_strings_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libc_strings_dats.o 
+
+: ../../../libc/DATS/time.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libc_time_dats.c
+: atslib_libc_time_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libc_time_dats.o 
+
+: ../../../libc/DATS/unistd.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libc_unistd_dats.c
+: atslib_libc_unistd_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libc_unistd_dats.o 
+
+: ../../../libats/DATS/funset_avltree.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_funset_avltree_dats.c
+: atslib_libats_funset_avltree_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_funset_avltree_dats.o 
+
+: ../../../libats/DATS/funset_listord.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_funset_listord_dats.c
+: atslib_libats_funset_listord_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_funset_listord_dats.o 
+
+: ../../../libats/DATS/funmap_list.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_funmap_list_dats.c
+: atslib_libats_funmap_list_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_funmap_list_dats.o 
+
+: ../../../libats/DATS/funmap_avltree.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_funmap_avltree_dats.c
+: atslib_libats_funmap_avltree_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_funmap_avltree_dats.o 
+
+: ../../../libats/DATS/fundeque_fngtree.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_fundeque_fngtree_dats.c
+: atslib_libats_fundeque_fngtree_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_fundeque_fngtree_dats.o 
+
+: ../../../libats/DATS/funralist_nested.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_funralist_nested_dats.c
+: atslib_libats_funralist_nested_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_funralist_nested_dats.o 
+
+: ../../../libats/DATS/linmap_list.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_linmap_list_dats.c
+: atslib_libats_linmap_list_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_linmap_list_dats.o 
+
+: ../../../libats/DATS/linmap_randbst.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_linmap_randbst_dats.c
+: atslib_libats_linmap_randbst_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_linmap_randbst_dats.o 
+
+: ../../../libats/DATS/linmap_skiplist.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_linmap_skiplist_dats.c
+: atslib_libats_linmap_skiplist_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_linmap_skiplist_dats.o 
+
+: ../../../libats/DATS/linhashtbl_chain.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_linhashtbl_chain_dats.c
+: atslib_libats_linhashtbl_chain_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_linhashtbl_chain_dats.o 
+
+: ../../../libats/DATS/linralist_nested.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_linralist_nested_dats.c
+: atslib_libats_linralist_nested_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_linralist_nested_dats.o 
+
+: ../../../libats/ML/DATS/list0.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_ML_list0_dats.c
+: atslib_libats_ML_list0_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_ML_list0_dats.o 
+
+: ../../../libats/ML/DATS/option0.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_ML_option0_dats.c
+: atslib_libats_ML_option0_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_ML_option0_dats.o 
+
+: ../../../libats/ML/DATS/array0.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_ML_array0_dats.c
+: atslib_libats_ML_array0_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_ML_array0_dats.o 
+
+: ../../../libats/ML/DATS/string.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_ML_string_dats.c
+: atslib_libats_ML_string_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_ML_string_dats.o 
+
+: ../../../libats/ML/DATS/strarr.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_ML_strarr_dats.c
+: atslib_libats_ML_strarr_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_ML_strarr_dats.o 
+
+: ../../../libats/ML/DATS/filebas.dats | $(DEPS) |> ^c^ $(PATSOPT) --output %o --dynamic %f |> atslib_libats_ML_filebas_dats.c
+: atslib_libats_ML_filebas_dats.c | $(CDEPS) |> gcc -I../../.. -I$(PATSRUNTIME) $(DATSMEMALLOC) $(CCFLAGS) -o %o -c %f |> atslib_libats_ML_filebas_dats.o 
+
+
