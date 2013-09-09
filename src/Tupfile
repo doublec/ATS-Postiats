@@ -64,6 +64,9 @@ ATSCCFLAGS=-g -O2
 : pats_filename.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
 : pats_filename_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
 
+: pats_filename_reloc.dats |> ^c^ atsopt --output %o --dynamic %f |> %B_dats.c
+: pats_filename_reloc_dats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
+
 : pats_location.sats |> ^c^ atsopt --output %o --static %f |> %B_sats.c
 : pats_location_sats.c |> atscc $(ATSCCFLAGS) -o %o -c %f |> %B.o {objs}
 
